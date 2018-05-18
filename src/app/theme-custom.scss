@@ -1,0 +1,125 @@
+//@import '~@angular/material/core/theming/all-theme';
+@import '~@angular/material/_theming';
+
+// Plus imports for other components in your app.
+
+// NOTE: Theming is currently experimental and not yet publically released!
+
+// Include the base styles for Angular Material core. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+//@include md-core();
+@include mat-core();
+
+//http://stackoverflow.com/questions/41440998/angular2-material-real-custom-theming
+$custom-blue: (
+    50 : #e0e9f0,
+    100 : #b3c8d9,
+    200 : #80a4c0,
+    300 : #4d80a7,
+    400 : #266494,
+    500 : #004981,
+    600 : #004279,
+    700 : #00396e,
+    800 : #003164,
+    900 : #002151,
+    A100 : #84aaff,
+    A200 : #5186ff,
+    A400 : #1e63ff,
+    A700 : #0451ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+$custom-orange: (
+    50 : #fef4e8,
+    100 : #fee5c6,
+    200 : #fdd3a0,
+    300 : #fcc17a,
+    400 : #fbb45e,
+    500 : #faa741,
+    600 : #f99f3b,
+    700 : #f99632,
+    800 : #f88c2a,
+    900 : #f67c1c,
+    A100 : #ffffff,
+    A200 : #fffaf7,
+    A400 : #ffdcc4,
+    A700 : #ffcdab,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue.
+
+//$primary: mat-palette($c1, 500, A100, A700);
+$primary: mat-palette($custom-blue);
+
+//$accent:  mat-palette($c1, 500, A100, A700);
+$accent:  mat-palette($custom-orange);
+
+$warn:    mat-palette($mat-deep-orange, 500);
+//$candy-app-primary: md-palette($md-indigo);
+//$candy-app-accent:  md-palette($md-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+//$candy-app-warn:    md-palette($md-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$theme: mat-light-theme($primary, $accent, $warn);
+//$candy-app-theme: md-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($theme);
+//@include angular-material-theme($candy-app-theme);
+
+.theme-client1 {
+  $client1-primary: mat-palette($mat-blue-grey, 700, 500, 900);
+  $client1-accent:  mat-palette($mat-teal, A200, A100, A400);
+  $client1-warn:    mat-palette($mat-pink);
+
+  $client1-theme: mat-dark-theme($client1-primary, $client1-accent, $client1-warn);
+
+  @include angular-material-theme($client1-theme);
+}
+
+.theme-client2 {
+  $client2-primary: mat-palette($mat-orange, 700, 500, 900);
+  $client2-accent:  mat-palette($mat-light-blue, A200, A100, A400);
+  $client2-warn:    mat-palette($mat-red);
+
+  $client2-theme: mat-light-theme($client2-primary, $client2-accent, $client2-warn);
+
+  @include angular-material-theme($client2-theme);
+}
