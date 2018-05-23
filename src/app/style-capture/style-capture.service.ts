@@ -10,15 +10,15 @@ export class StyleCaptureService {
 
   constructor(private http:Http) { }
 
-  getStyles(selectedFirm): Observable <any[]> {
-    let url;
-    if (selectedFirm === 'firm1'){
-      url='assets/json/style-guide1.json';
-    }
-    else if(selectedFirm === 'firm2'){
-      url='assets/json/style-guide2.json';
-    }
-    return  this.http.get(url)
+  getStyles(): Observable <any[]> {
+    // let url;
+    // if (selectedFirm === 'firm1'){
+    //   url='assets/json/style-guide1.json';
+    // }
+    // else if(selectedFirm === 'firm2'){
+    //   url='assets/json/style-guide2.json';
+    // }
+    return  this.http.get('assets/json/style-config.json')
                            .map(response => response.json())
                            .catch(error => Observable.throw(error.statusText));
    }

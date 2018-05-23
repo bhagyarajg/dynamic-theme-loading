@@ -2,8 +2,8 @@
  <link rel="stylesheet" id="styleLink">
 
 <header>    
-  <h2 *ngIf="(styles |json) == '{}'"> UI Framework Demo </h2>
-  <h2 *ngIf="(styles |json) != '{}'"><img [src]="styles.logo">&nbsp;{{styles.title}}</h2> 
+  <h2 *ngIf="(styles | json) == '{}'"> UI Framework Demo </h2>
+  <h2 *ngIf="(styles | json) != '{}'"><img [src]="styles.logo">&nbsp;{{styles.title}}</h2> 
 </header>
 <div [class]="styles.theme">
   <!-- content goes here -->
@@ -13,7 +13,7 @@
     <option value="firm1">Firm 1</option>
     <option value="firm2">Firm 2</option>
   </select>
-  <button mat-raised-button color="primary">Material button</button>
+  <button mat-raised-button color="primary" *ngIf="(styles | json) != '{}'">Click Me!</button>
 </div>
 <footer>
   <h4>{{styles["footer-note"]}}</h4>
