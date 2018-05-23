@@ -1,8 +1,7 @@
 {
     "logo" : "assets/images/bank-logo.png",
-    "bg-color": "aquablue",
     "title": "Bank 2",
     "footer-note":"Copyright bank 2  2018",
-    "font-family":"Arial, Helvetica, sans-serif",
-    "stylesUrl":"assets/styles/firm2-styles.css"
+    "stylesUrl":"assets/styles/firm2-styles.css",
+    "theme":"theme-client2"
 }
